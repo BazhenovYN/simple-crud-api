@@ -17,6 +17,18 @@ const isUserDataValid = (data: Partial<NewUserData>) => {
   if (!(data.username && data.age && data.hobbies)) {
     return false;
   }
+  if (typeof data.username !== 'string') {
+    return false;
+  }
+  if (typeof data.age !== 'number') {
+    return false;
+  }
+  if (!Array.isArray(data.hobbies)) {
+    return false;
+  }
+  if (data.hobbies.some((element) => typeof element !== 'string')) {
+    return false;
+  }
   return true;
 };
 
@@ -56,8 +68,10 @@ export const addNewUser = (data?: NewUserData): IRequestResult => {
       data: getErrorText(MESSAGES.BAD_USER_DATA),
     };
   }
+
   const newUser = { id: uuidv4(), ...data };
   users.push(newUser);
+
   return {
     statusCode: HTTP_STATUS_CODES.CREATED,
     data: newUser,
@@ -69,6 +83,13 @@ export const updateUser = (userId?: string, data?: Partial<NewUserData>): IReque
     return {
       statusCode: HTTP_STATUS_CODES.BAD_REQUEST,
       data: getErrorText(MESSAGES.BAD_UUID),
+    };
+  }
+
+  if (!data || !isUserDataValid(data)) {
+    return {
+      statusCode: HTTP_STATUS_CODES.BAD_REQUEST,
+      data: getErrorText(MESSAGES.BAD_USER_DATA),
     };
   }
 

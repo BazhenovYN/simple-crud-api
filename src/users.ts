@@ -4,14 +4,7 @@ import { HTTP_STATUS_CODES, MESSAGES } from './const.js';
 import type { IRequestResult, IUser, NewUserData } from './types.js';
 import { getErrorText } from './utils.js';
 
-const testUser: IUser = {
-  id: uuidv4(),
-  username: 'John Dow',
-  age: 23,
-  hobbies: ['football', 'basketball'],
-};
-
-const users: IUser[] = [testUser];
+const users: IUser[] = [];
 
 const isUserDataValid = (data: Partial<NewUserData>) => {
   if (!(data.username && data.age && data.hobbies)) {

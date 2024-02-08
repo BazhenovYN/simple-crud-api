@@ -47,12 +47,10 @@ export const getUserById = (userId: string): IRequestResult => {
   };
 };
 
-export const getAllUsers = (): IRequestResult => {
-  return {
-    statusCode: HTTP_STATUS_CODES.OK,
-    data: users,
-  };
-};
+export const getAllUsers = (): IRequestResult => ({
+  statusCode: HTTP_STATUS_CODES.OK,
+  data: users,
+});
 
 export const addNewUser = (data?: NewUserData): IRequestResult => {
   if (!data || !isUserDataValid(data)) {
@@ -86,7 +84,7 @@ export const updateUser = (userId?: string, data?: Partial<NewUserData>): IReque
     };
   }
 
-  const user = users.find((user) => user.id === userId);
+  const user = users.find((element) => element.id === userId);
 
   if (!user) {
     return {

@@ -15,9 +15,8 @@ const executeMethod = ({ endpoint, method, params }: IRequestParams): IRequestRe
       case HTTP_REQUEST_METHODS.GET:
         if (params.userId) {
           return getUserById(params.userId);
-        } else {
-          return getAllUsers();
         }
+        return getAllUsers();
       case HTTP_REQUEST_METHODS.POST:
         return addNewUser(params.body);
       case HTTP_REQUEST_METHODS.PUT:
@@ -35,8 +34,8 @@ const executeMethod = ({ endpoint, method, params }: IRequestParams): IRequestRe
   }
 };
 
-const getRequestBody = (req: HttpRequest): Promise<NewUserData> => {
-  return new Promise((resolve, reject) => {
+const getRequestBody = (req: HttpRequest): Promise<NewUserData> =>
+  new Promise((resolve, reject) => {
     let acc = '';
 
     req.on('data', (chunk) => {
@@ -52,7 +51,6 @@ const getRequestBody = (req: HttpRequest): Promise<NewUserData> => {
       }
     });
   });
-};
 
 const getRequestParams = async (req: HttpRequest): Promise<IRequestParams> => {
   const url = new URL(req.url ?? '', `http://${req.headers.host}`);

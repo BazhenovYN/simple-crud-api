@@ -16,9 +16,7 @@ export const HTTP_STATUS_CODES = {
   SERVER_ERROR: 500,
 };
 
-export const ENDPOINTS = {
-  users: '/api/users',
-};
+export const USERS_ENDPOINT = '/api/users';
 
 export const MESSAGES = {
   BAD_UUID: 'UUID is incorrect',

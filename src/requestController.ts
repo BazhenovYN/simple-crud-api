@@ -1,4 +1,4 @@
-import { ENDPOINTS, HTTP_REQUEST_METHODS, HTTP_STATUS_CODES, MESSAGES } from './const.js';
+import { USERS_ENDPOINT, HTTP_REQUEST_METHODS, HTTP_STATUS_CODES, MESSAGES } from './const.js';
 import type {
   HttpRequest,
   HttpResponse,
@@ -10,7 +10,7 @@ import { addNewUser, deleteUserById, getAllUsers, getUserById, updateUser } from
 import { getEndpointFromUrl, getErrorText, getIdFromUrl } from './utils.js';
 
 const executeMethod = ({ endpoint, method, params }: IRequestParams): IRequestResult => {
-  if (endpoint === ENDPOINTS.users) {
+  if (endpoint === USERS_ENDPOINT) {
     switch (method) {
       case HTTP_REQUEST_METHODS.GET:
         if (params.userId) {

@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "start:dev": "nodemon src/index.ts",
+    "start:dev": "nodemon src/server.ts",
     "start:prod": "npm run build && node dist/bundle.js",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "lint:fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "@types/dotenv-webpack": "^7.0.7",
     "@types/node": "^20.11.16",
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "dotenv-webpack": "^8.0.1",

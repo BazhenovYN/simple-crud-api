@@ -93,7 +93,11 @@ export const updateUser = (userId?: string, data?: Partial<NewUserData>): IReque
     };
   }
 
-  Object.assign(user, data);
+  Object.assign(user, {
+    username: data.username,
+    age: data.age,
+    hobbies: data.hobbies,
+  });
 
   return {
     statusCode: HTTP_STATUS_CODES.OK,

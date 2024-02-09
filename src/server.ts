@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.on('request', (req) => {
-  console.log(`${req.method} ${req.url}`);
+  console.log(`${req.method}\t ${req.url}`);
 });
 
 server.listen(PORT, () => {

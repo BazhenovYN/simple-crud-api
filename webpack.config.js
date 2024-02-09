@@ -27,5 +27,6 @@ export default {
   output: {
     filename: 'bundle.cjs',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
 };

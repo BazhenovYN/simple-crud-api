@@ -5,12 +5,13 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
+  target: 'node',
   mode: 'production',
-  entry: './src/index.ts',
+  entry: './src/server.ts',
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -19,9 +20,12 @@ export default {
   plugins: [new Dotenv()],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    extensionAlias: {
+      '.js': ['.ts', '.js'],
+    },
   },
   output: {
-    filename: 'bundle.js',
+    filename: 'bundle.cjs',
     path: path.resolve(__dirname, 'dist'),
   },
 };

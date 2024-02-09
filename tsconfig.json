@@ -1,17 +1,8 @@
 {
+  "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "NodeNext",
-    "lib": ["ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "outDir": "dist",
     "rootDir": "src",
-    "strict": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "moduleResolution": "NodeNext",
-    "resolveJsonModule": true
+    "outDir": "dist"
   },
   "ts-node": {
     "esm": true

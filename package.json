@@ -10,7 +10,7 @@
     "test": "jest",
     "build": "webpack",
     "start:dev": "nodemon src/server.ts",
-    "start:prod": "npm run build && node dist/bundle.js",
+    "start:prod": "npm run build && node dist/bundle.cjs",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "lint:fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "format": "prettier --check .",
@@ -29,6 +29,7 @@
     "url": "https://github.com/BazhenovYN/simple-crud-api.git"
   },
   "devDependencies": {
+    "@tsconfig/node20": "^20.1.2",
     "@types/dotenv-webpack": "^7.0.7",
     "@types/node": "^20.11.17",
     "@types/uuid": "^9.0.8",

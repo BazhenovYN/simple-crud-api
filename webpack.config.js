@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default {
   target: 'node',
   mode: 'production',
-  entry: './src/server.ts',
+  entry: './src/index.ts',
   module: {
     rules: [
       {

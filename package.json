@@ -9,6 +9,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
+    "start:dev": "nodemon src/index.ts",
     "start:prod": "npm run build && node dist/bundle.cjs",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "lint:fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",

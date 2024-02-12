@@ -125,7 +125,7 @@ export const deleteUserById = (userId?: string): IRequestResult => {
   const removedUser = users.splice(index, 1);
 
   return {
-    statusCode: HTTP_STATUS_CODES.OK,
+    statusCode: HTTP_STATUS_CODES.NO_CONTENT,
     data: removedUser[0],
   };
 };
